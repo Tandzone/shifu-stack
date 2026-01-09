@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node", // ou "Bundler"
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true, // optionnel mais utile
+    "noEmit": true
+  }
+}

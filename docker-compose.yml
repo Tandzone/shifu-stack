@@ -1,0 +1,22 @@
+services:
+  frontend:
+    image: node:20-alpine
+    container_name: dev_frontend
+    user: "${UID}:${GID}"
+    working_dir: /app
+    ports:
+      - "${FRONTEND_PORT}:5173"
+    volumes:
+      - ./frontend:/app
+    command: sh -c "yarn install && yarn dev --host 0.0.0.0"
+
+  backend:
+    image: node:20-alpine
+    container_name: dev_backend
+    user: "${UID}:${GID}"
+    working_dir: /app
+    ports:
+      - "${BACKEND_PORT}:3000"
+    volumes:
+      - ./backend:/app
+    command: sh -c "yarn install && yarn dev"
