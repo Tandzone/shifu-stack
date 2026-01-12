@@ -1,6 +1,12 @@
 import fastify from 'fastify';
+import cors from '@fastify/cors';
 
 const server = fastify({ logger: true });
+
+// Configuration CORS pour autoriser toutes les origines
+await server.register(cors, {
+  origin: '*',
+});
 
 server.get('/ping', async (request, reply) => {
   return { status: 'Shifu is coding', timestamp: new Date().toISOString() };
