@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import type { PingResponse } from "./shared/types";
 
 function App() {
   const [message, setMessage] = useState<string>("Connexion au backend...")
@@ -6,7 +7,7 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:3000/ping")
       .then((response) => response.json())
-      .then((data) => setMessage(data.status))
+      .then((data: PingResponse) => setMessage(data.status))
       .catch((error) => setMessage("Erreur de connexion au backend"))
   }, [])
 

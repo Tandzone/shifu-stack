@@ -8,6 +8,7 @@ services:
       - "${FRONTEND_PORT}:5173"
     volumes:
       - ./frontend:/app
+      - ./shared:/app/src/shared
     command: sh -c "yarn install && yarn dev --host 0.0.0.0"
 
   backend:
@@ -19,4 +20,5 @@ services:
       - "${BACKEND_PORT}:3000"
     volumes:
       - ./backend:/app
+      - ./shared:/app/src/shared
     command: sh -c "yarn install && yarn dev"

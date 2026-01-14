@@ -1,5 +1,6 @@
 import fastify from 'fastify';
 import cors from '@fastify/cors';
+import { PingResponse } from './shared/types';
 
 const server = fastify({ logger: true });
 
@@ -8,7 +9,7 @@ await server.register(cors, {
   origin: '*',
 });
 
-server.get('/ping', async (request, reply) => {
+server.get('/ping', async (): Promise<PingResponse> => {
   return { status: 'Shifu is coding', timestamp: new Date().toISOString() };
 });
 
